@@ -125,7 +125,7 @@ function handleClick(evt) {
   // check for tie
   // TODO: check if all cells in board are filled; if so call, call endGame
 
-  //could have also been a function 
+  //could have also been a function
   if (board.every(function (array) {
     return array.every(function (elem) {
       return elem;
@@ -160,7 +160,13 @@ function checkForWin() {
   }
 
   // TODO: read and understand this code. Add comments to help you.
-
+//loop through each row and column to set the places 4 pieces in a row can be found
+//use a nested for loop so that we can access each individual cell (x)
+//the nested for loop will start with y and then iterate through x each time y = 0 x = 0, 1, 2, 3, etc., so that we get the entire length of the row
+//set up an array of 4 "cells" for horizontal, vertical, and both diagonals, each is a y,x pair with x or y incrementing or decreasing by 1 --
+//so x will always be right next to each other in the same y 
+//run the function _win above on every variable below, --note that some pairs will be [1,8] or higher but that will evaluate to false so it doesn't matter
+//each one returns true, checkForWin === true and we win
   for (var y = 0; y < HEIGHT; y++) {
     for (var x = 0; x < WIDTH; x++) {
       var horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
